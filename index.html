@@ -72,6 +72,11 @@ body{
 .sbtn{width:42px;height:42px;border-radius:50%;background:rgba(16,13,36,.62);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.2);color:#fff;display:grid;place-items:center;cursor:pointer}
 .sbtn:active{transform:scale(.92)}
 .sbtn svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2.2}
+/* ---- Astuce iOS (plein écran via écran d'accueil) ---- */
+.ios-hint{position:fixed;left:14px;right:14px;bottom:max(16px,env(safe-area-inset-bottom));z-index:103;background:rgba(16,13,36,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:14px 16px;color:#fff;font-size:13px;line-height:1.5;display:none;align-items:center;gap:12px;box-shadow:0 14px 44px rgba(0,0,0,.55)}
+.ios-hint.on{display:flex}
+.ios-hint b{color:var(--amber)}
+.ios-hint .hbtn{flex-shrink:0;background:var(--amber);color:#5a3d00;border:0;border-radius:999px;padding:9px 15px;font-weight:800;font-size:13px;cursor:pointer}
 </style>
 </head>
 <body>
@@ -115,7 +120,7 @@ body{
       </button>
     </div>
 
-    <p class="tip">📱 <b>Astuce :</b> sur iPhone, fais « Ajouter à l'écran d'accueil » puis lance depuis l'icône → l'app s'ouvre en vrai plein écran, sans barres Safari.</p>
+    <p class="tip">📱 <b>Astuce iPhone :</b> Partager → « Sur l'écran d'accueil », puis lance depuis l'icône → vrai plein écran, sans barres Safari.</p>
   </div>
 
   <!-- Stage plein écran -->
@@ -125,42 +130,59 @@ body{
       <button class="sbtn" id="closeBtn" title="Fermer" aria-label="Fermer"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
     <iframe id="frame" title="Maquette CoJam" allow="fullscreen; microphone" allowfullscreen></iframe>
+    <div class="ios-hint" id="iosHint">
+      <span>📱 Sur iPhone, le plein écran passe par l'écran d'accueil : <b>Partager</b> → <b>« Sur l'écran d'accueil »</b>, puis ouvre CoJam depuis l'icône.</span>
+      <button class="hbtn" id="iosHintClose">OK</button>
+    </div>
   </div>
 
   <script>
-    var stage = document.getElementById('stage');
-    var frame = document.getElementById('frame');
+    var stage   = document.getElementById('stage');
+    var frame   = document.getElementById('frame');
+    var iosHint = document.getElementById('iosHint');
+    var fsBtn   = document.getElementById('fsBtn');
+    var docEl   = document.documentElement;
 
+    var fsSupported = !!(docEl.requestFullscreen || docEl.webkitRequestFullscreen);
+    var isStandalone = (window.navigator.standalone === true) ||
+                       (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
+
+    function isFS(){ return !!(document.fullscreenElement || document.webkitFullscreenElement); }
     function enterFS(){
-      var el = document.documentElement;
-      var fn = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen;
-      if (fn) { try { fn.call(el); } catch(e){} }
+      var fn = docEl.requestFullscreen || docEl.webkitRequestFullscreen;
+      if (fn){ try { var p = fn.call(docEl); if (p && p.catch) p.catch(function(){}); } catch(e){} }
     }
     function exitFS(){
-      if (document.fullscreenElement || document.webkitFullscreenElement){
-        var fn = document.exitFullscreen || document.webkitExitFullscreen;
-        if (fn) { try { fn.call(document); } catch(e){} }
-      }
+      var fn = document.exitFullscreen || document.webkitExitFullscreen;
+      if (fn && isFS()){ try { fn.call(document); } catch(e){} }
     }
+    function showHint(){ iosHint.classList.add('on'); }
+    function hideHint(){ iosHint.classList.remove('on'); }
+
     function openProto(src){
       frame.src = src;
       stage.classList.add('on');
-      enterFS();                 // déclenché dans le geste du clic → autorisé
+      if (fsSupported) enterFS();                 // Mac / Android / iPad : vrai plein écran
+      else if (!isStandalone) showHint();         // iPhone : on explique l'écran d'accueil
     }
     function closeProto(){
-      exitFS();
+      exitFS(); hideHint();
       stage.classList.remove('on');
       setTimeout(function(){ frame.src = 'about:blank'; }, 250);
     }
+
+    // Déjà lancé depuis l'écran d'accueil → on est plein écran : bouton inutile
+    if (isStandalone) fsBtn.style.display = 'none';
 
     document.querySelectorAll('.card').forEach(function(c){
       c.addEventListener('click', function(){ openProto(c.getAttribute('data-proto')); });
     });
     document.getElementById('closeBtn').addEventListener('click', closeProto);
-    document.getElementById('fsBtn').addEventListener('click', function(){
-      if (document.fullscreenElement || document.webkitFullscreenElement) exitFS(); else enterFS();
+    fsBtn.addEventListener('click', function(){
+      if (!fsSupported){ showHint(); return; }
+      if (isFS()) exitFS(); else enterFS();
     });
-    // Esc → revenir au launcher si on sort du plein écran sans fermer
+    document.getElementById('iosHintClose').addEventListener('click', hideHint);
     document.addEventListener('keydown', function(e){ if(e.key==='Escape' && stage.classList.contains('on')) closeProto(); });
   </script>
 </body>
