@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#100d24">
+<meta name="robots" content="noindex, nofollow">
+<title>CoJam — Prototype MVP</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="device">
+  <div class="viewport bar-dark">
+    <div class="notch"></div>
+
+    <!-- STATUS BAR (overlay, thème géré par JS) -->
+    <div class="statusbar">
+      <span class="time">8:12</span>
+      <div class="sb-icons">
+        <svg width="17" height="12" viewBox="0 0 17 12"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="4.5" y="5" width="3" height="7" rx="1"/><rect x="9" y="2.5" width="3" height="9.5" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1"/></svg>
+        <svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 2.5C10.5 2.5 12.7 3.6 14.2 5.3L15.5 4C13.6 1.9 11 .7 8 .7S2.4 1.9 .5 4L1.8 5.3C3.3 3.6 5.5 2.5 8 2.5Z"/><path d="M8 6C9.7 6 11.2 6.7 12.3 7.8L13.6 6.5C12.1 5 10.2 4.2 8 4.2S3.9 5 2.4 6.5L3.7 7.8C4.8 6.7 6.3 6 8 6Z"/><circle cx="8" cy="10.5" r="1.8" fill="currentColor"/></svg>
+        <svg width="25" height="12" viewBox="0 0 25 12"><rect x="1" y="1" width="21" height="10" rx="3"/><rect x="22.6" y="4" width="1.8" height="4" rx="1"/></svg>
+      </div>
+    </div>
+
+    <div class="screens">
+
+      <!-- ════════════════ 1 · ONBOARDING (hero) ════════════════ -->
+      <section class="screen onb" id="onboarding" data-start data-theme="dark">
+        <div class="onb-hero">
+          <div class="float-pin g-amber" style="top:96px;right:34px">K</div>
+          <div class="float-pin g-green" style="top:150px;left:30px;animation-delay:1.2s">S</div>
+          <div class="float-pin g-blue" style="top:220px;right:60px;animation-delay:2.1s">M</div>
+          <div class="onb-logo">🚗 CoJam</div>
+          <h1>Transforme tes bouchons en <em>rencontres.</em></h1>
+          <p>Connecte-toi aux conducteurs autour de toi. Discute, en vocal ou en message — sans jamais quitter la route des yeux.</p>
+        </div>
+        <div class="onb-actions">
+          <button class="sso dark" data-go="onb-profile">
+            <svg width="16" height="18" viewBox="0 0 16 18" fill="currentColor"><path d="M13 9.6c0-2 1.6-3 1.7-3.1-1-1.4-2.4-1.6-2.9-1.6-1.2-.1-2.4.7-3 .7s-1.6-.7-2.6-.7C4 5 2.8 5.7 2.1 6.9.7 9.4 1.7 13 3 15c.7 1 1.4 2 2.4 2s1.3-.6 2.5-.6 1.5.6 2.5.6 1.7-1 2.3-2c.5-.7.7-1.4.7-1.5-.1 0-2.1-.8-2.1-3zM11 3.5c.6-.7 1-1.6.9-2.5-.8 0-1.8.5-2.4 1.2-.5.6-1 1.5-.8 2.4.9 0 1.8-.5 2.3-1.1z"/></svg>
+            Continuer avec Apple
+          </button>
+          <button class="sso" data-go="onb-profile">
+            <svg width="17" height="17" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.6 9.2c0-.6 0-1.1-.2-1.7H9v3.3h4.8a4 4 0 0 1-1.8 2.7v2.2h3C16.7 14.2 17.6 11.9 17.6 9.2z"/><path fill="#34A853" d="M9 18c2.4 0 4.5-.8 6-2.2l-3-2.2c-.8.6-1.9.9-3 .9-2.3 0-4.3-1.6-5-3.7H1v2.3A9 9 0 0 0 9 18z"/><path fill="#FBBC05" d="M4 10.7a5.4 5.4 0 0 1 0-3.4V5H1a9 9 0 0 0 0 8z"/><path fill="#EA4335" d="M9 3.6c1.3 0 2.5.5 3.4 1.3l2.6-2.6A9 9 0 0 0 1 5l3 2.3C4.7 5.2 6.7 3.6 9 3.6z"/></svg>
+            Continuer avec Google
+          </button>
+          <button class="sso line" data-go="onb-profile">Continuer avec un e-mail</button>
+          <p class="legal">CoJam a besoin du <b>GPS</b> et du <b>micro</b>.<br>En continuant, tu acceptes les <a>conditions</a> et la <a>confidentialité</a>.</p>
+        </div>
+      </section>
+
+      <!-- ════════════════ 1b · ONBOARDING (profil) ════════════════ -->
+      <section class="screen" id="onb-profile" data-theme="light">
+        <div class="appbar"><button class="back" data-back><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button><div><h1>Ton profil</h1><div class="sub">Étape 2 / 2</div></div></div>
+        <div class="scroll section">
+          <div class="center-col" style="margin-bottom:18px">
+            <div class="av xl g-violet">M<button class="icon-btn" style="position:absolute;bottom:-2px;right:-2px;width:32px;height:32px"><svg viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M12 5v14M5 12h14"/></svg></button></div>
+          </div>
+
+          <label class="eyebrow">Prénom affiché</label>
+          <input class="field" style="width:100%;margin:8px 0 14px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 15px;font-size:15px;font-weight:600" value="Marc">
+
+          <div class="list-row" style="box-shadow:none;border:1px solid var(--line)">
+            <div class="lr-main"><div class="lr-t">Mode anonyme 👻</div><div class="lr-s">Afficher un pseudo plutôt que ton prénom</div></div>
+            <div class="toggle"></div>
+          </div>
+
+          <label class="eyebrow" style="display:block;margin:18px 0 8px">Tes centres d'intérêt</label>
+          <div class="chips">
+            <span class="chip selectable on">💻 Tech</span><span class="chip selectable on">🎮 Gaming</span>
+            <span class="chip selectable">⚽ Sport</span><span class="chip selectable on">🎵 Musique</span>
+            <span class="chip selectable">🍳 Cuisine</span><span class="chip selectable">🎬 Ciné</span>
+            <span class="chip selectable">📈 Business</span><span class="chip selectable">✈️ Voyage</span>
+          </div>
+
+          <label class="eyebrow" style="display:block;margin:18px 0 8px">Ton trajet habituel</label>
+          <div class="trip-input" style="margin-bottom:0">
+            <div class="trip-line"><span class="dotpin from"></span><div class="tl-txt"><div class="k">Départ</div><div class="v">Wavre</div></div></div>
+            <div class="trip-line"><span class="dotpin to"></span><div class="tl-txt"><div class="k">Destination</div><div class="v">Bruxelles</div></div></div>
+          </div>
+
+          <div class="eph-note" style="margin:18px 0 0;background:#eef6ff;border-color:#bcd9f7;color:#1d5fa8">
+            🛡️ Je comprends que CoJam <b>se verrouille au-delà de 20 km/h</b> (mode vocal uniquement).
+          </div>
+        </div>
+        <div class="section" style="padding-top:0"><button class="btn btn-primary btn-block btn-lg" data-go="map">C'est parti 🚀</button></div>
+      </section>
+
+      <!-- ════════════════ 2 · CARTE ════════════════ -->
+      <section class="screen map-screen" id="map" data-theme="dark">
+        <div class="map-canvas">
+          <div class="road v" style="left:22%;top:0;bottom:0"></div>
+          <div class="road v" style="left:70%;top:0;bottom:0"></div>
+          <div class="road h" style="top:34%;left:0;right:0"></div>
+          <div class="road h glow" style="top:58%;left:0;right:0"></div>
+          <div class="road v" style="left:46%;top:20%;bottom:0;transform:rotate(8deg)"></div>
+
+          <div class="radar"><span class="ring"></span><span class="ring"></span><span class="ring"></span></div>
+          <div class="you-dot"></div>
+
+          <div class="pin talking" style="top:32%;left:30%" data-sheet="sheet-driver"><div class="pin-av g-amber">K</div><div class="pin-tag">Kevin · 200 m</div></div>
+          <div class="pin" style="top:40%;left:66%" data-sheet="sheet-driver"><div class="pin-av g-green">S</div><div class="pin-tag">Sarah · 320 m</div></div>
+          <div class="pin" style="top:62%;left:24%" data-sheet="sheet-driver"><div class="pin-av g-blue">M</div><div class="pin-tag">Marc · 480 m</div></div>
+          <div class="pin" style="top:68%;left:72%" data-sheet="sheet-driver"><div class="pin-av g-coral">J</div><div class="pin-tag">Julie · 510 m</div></div>
+        </div>
+
+        <div class="map-topbar">
+          <div class="jam-badge"><span class="dot"></span><b>E40 · Ring<small>Bouchon ~22 min</small></b></div>
+          <button class="btn btn-amber" style="margin-left:auto;padding:11px 16px;font-size:13px" data-go="driver">🚗 Conduite</button>
+        </div>
+
+        <div class="proximity-hero">
+          <div class="big">7</div>
+          <div class="ph-txt"><div class="t">conducteurs à proximité</div><div class="s">dans ton bouchon · rayon ~1 km</div></div>
+          <svg width="22" height="22" viewBox="0 0 24 24" style="stroke:#fff;fill:none;stroke-width:2"><path d="M9 6l6 6-6 6"/></svg>
+        </div>
+
+        <!-- sheet : fiche conducteur -->
+        <div class="sheet-mask" id="sheet-driver">
+          <div class="sheet">
+            <div class="grip"></div>
+            <div style="display:flex;align-items:center;gap:14px">
+              <div class="av l g-amber">K</div>
+              <div style="flex:1">
+                <div style="font-family:var(--ff-display);font-size:20px;font-weight:800">Kevin M.</div>
+                <div class="mt" style="font-size:12px;color:var(--green);font-weight:700">● en ligne · à 200 m</div>
+              </div>
+              <button class="icon-btn" data-close-sheet><svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke-width:2.4"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+            </div>
+            <div class="chips" style="margin:16px 0 20px"><span class="chip">💻 Tech</span><span class="chip amber">🎮 Gaming</span><span class="chip green">🎵 Musique</span></div>
+            <div style="display:flex;gap:10px">
+              <button class="btn btn-ghost btn-block" data-go="chat">💬 Message</button>
+              <button class="btn btn-primary btn-block" data-go="vocal">🎙️ Vocal</button>
+            </div>
+          </div>
+        </div>
+
+        <nav class="tabbar">
+          <button class="tab active" data-go="map"><span class="tab-ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span class="tab-lbl">Carte</span></button>
+          <button class="tab" data-go="chat"><span class="tab-ic"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1 1 21 11.5z"/></svg></span><span class="tab-lbl">Chat</span></button>
+          <button class="tab" data-go="trajet"><span class="tab-ic"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></span><span class="tab-lbl">Trajet</span></button>
+          <button class="tab" data-go="profil"><span class="tab-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><span class="tab-lbl">Profil</span></button>
+        </nav>
+      </section>
+
+      <!-- ════════════════ 3 · CHAT (texte + AUDIO) ════════════════ -->
+      <section class="screen chat-bg" id="chat" data-theme="light">
+        <div class="chat-head">
+          <button class="back" data-go="map"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <div class="av m g-amber">K</div>
+          <div style="flex:1"><div class="nm">Kevin M.</div><div class="mt"><span class="live"></span> en ligne · 200 m</div></div>
+          <button class="icon-btn" data-go="vocal" style="background:var(--violet);color:#fff"><svg viewBox="0 0 24 24"><path d="M12 3v18M8 7v10M16 7v10M4 10v4M20 10v4"/></svg></button>
+        </div>
+
+        <div class="scroll">
+          <div class="thread">
+            <div class="eph-note">⏳ Messages éphémères — ils disparaissent quand vous quittez la zone</div>
+            <div class="day">Aujourd'hui · 8:05</div>
+
+            <div class="row them"><div class="av s g-amber">K</div><div class="bubble">Hey ! Toi aussi coincé sur le E40 ? 😅</div></div>
+            <div class="row me"><div class="bubble">Oui, 20 min que je bouge pas…<div class="tick">8:06 ✓✓</div></div></div>
+
+            <!-- message audio REÇU -->
+            <div class="row them">
+              <div class="av s g-amber">K</div>
+              <div class="voice-msg">
+                <button class="vm-play"></button>
+                <div class="vm-wave"></div>
+                <div class="vm-meta"><span class="vm-dur" data-full="0:14">0:14</span></div>
+              </div>
+            </div>
+
+            <div class="row them"><div class="av s g-amber">K</div><div class="bubble">Tu bosses dans la tech aussi non ?</div></div>
+
+            <!-- message audio ENVOYÉ -->
+            <div class="row me">
+              <div class="voice-msg">
+                <button class="vm-play"></button>
+                <div class="vm-wave"></div>
+                <div class="vm-meta"><span class="vm-dur" data-full="0:09">0:09</span><span class="vm-rate">1×</span></div>
+              </div>
+            </div>
+
+            <div class="row me"><div class="bubble">Carrément, je suis dev 👨‍💻 Et toi ?<div class="tick">8:09 ✓✓</div></div></div>
+            <div class="row them"><div class="av s g-amber">K</div><div class="bubble">Archi cloud. On joue à quoi en ce moment ? 🎮</div></div>
+          </div>
+        </div>
+
+        <!-- composer -->
+        <div class="composer">
+          <button class="c-ic mic"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>
+          <input class="field" placeholder="Message…">
+          <button class="c-ic send"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></button>
+        </div>
+        <!-- barre d'enregistrement (cachée) -->
+        <div class="rec-bar">
+          <span class="rec-dot"></span><span class="rec-time">0:00</span>
+          <div class="rec-wave"></div>
+          <button class="rec-cancel">Annuler</button>
+          <button class="rec-send"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></button>
+        </div>
+      </section>
+
+      <!-- ════════════════ 4 · SALON VOCAL ════════════════ -->
+      <section class="screen vocal" id="vocal" data-theme="dark">
+        <div class="vocal-canvas"></div>
+        <div class="vocal-head">
+          <div class="room">🎙️ Salon E40 · Km 23</div>
+          <span class="pill">👥 5 participants · mains libres</span>
+        </div>
+        <div class="parts">
+          <div class="part talk"><div class="pa-wrap"><div class="av pa g-amber">K</div></div><div class="pn">Kevin M.</div><div class="ps">parle…</div></div>
+          <div class="part"><div class="pa-wrap"><div class="av pa g-coral">S</div><span class="badge-ic mute">🔇</span></div><div class="pn">Sarah L.</div><div class="ps">muet</div></div>
+          <div class="part"><div class="pa-wrap"><div class="av pa g-blue">M</div><span class="badge-ic head">🎧</span></div><div class="pn">Marc D.</div><div class="ps">écoute</div></div>
+          <div class="part you"><div class="pa-wrap"><div class="av pa g-green">T</div></div><div class="pn" style="color:var(--amber)">Toi</div><div class="ps">connecté</div></div>
+          <div class="part"><div class="pa-wrap"><div class="av pa g-violet">J</div><span class="badge-ic head">🎧</span></div><div class="pn">Julie P.</div><div class="ps">écoute</div></div>
+        </div>
+        <div class="vocal-ctrl">
+          <button class="vctrl"><span class="vc-ic"><svg viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M23 9l-6 6M17 9l6 6"/></svg></span><span class="vc-lbl">Muet</span></button>
+          <button class="ptt"><div class="ptt-circle"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3" stroke="#fff" stroke-width="2" fill="none"/></svg></div><span class="ptt-lbl">Appuie pour parler</span></button>
+          <button class="vctrl leave" data-go="map"><span class="vc-ic"><svg viewBox="0 0 24 24"><path d="M16 17l5-5-5-5M21 12H9M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/></svg></span><span class="vc-lbl">Quitter</span></button>
+        </div>
+      </section>
+
+      <!-- ════════════════ 5 · TRAJET / MATCHING ════════════════ -->
+      <section class="screen" id="trajet" data-theme="light">
+        <div class="appbar"><div><h1>Mon trajet</h1><div class="sub">Trouve qui va dans ta direction</div></div></div>
+        <div class="scroll section">
+          <div class="trip-input">
+            <div class="trip-line"><span class="dotpin from"></span><div class="tl-txt"><div class="k">Position</div><div class="v">E40 · Ring de Bruxelles</div></div></div>
+            <div class="trip-line"><span class="dotpin to"></span><div class="tl-txt"><div class="k">Je vais vers</div><div class="v">Namur</div></div></div>
+          </div>
+
+          <div class="row-between" style="margin:4px 2px 12px"><h2 class="display" style="font-size:16px">Vont aussi vers Namur</h2><span class="chip green">3 conducteurs</span></div>
+
+          <div class="match-card" data-go="chat">
+            <div class="av m g-blue">L</div>
+            <div style="flex:1"><div style="font-weight:800">Léa R.</div><div class="mc-dir">↗ même sortie · Namur-Est</div></div>
+            <div class="match-pct"><div class="pct">92%</div><div class="pct-l">affinité</div></div>
+          </div>
+          <div class="match-card" data-go="chat">
+            <div class="av m g-teal">T</div>
+            <div style="flex:1"><div style="font-weight:800">Thomas B.</div><div class="mc-dir">↗ direction Namur centre</div></div>
+            <div class="match-pct"><div class="pct">78%</div><div class="pct-l">affinité</div></div>
+          </div>
+          <div class="match-card" data-go="chat">
+            <div class="av m g-coral">N</div>
+            <div style="flex:1"><div style="font-weight:800">Nadia K.</div><div class="mc-dir">↗ sortie Bouge</div></div>
+            <div class="match-pct"><div class="pct">64%</div><div class="pct-l">affinité</div></div>
+          </div>
+
+          <div class="card" style="margin-top:6px;display:flex;gap:12px;align-items:center;background:linear-gradient(135deg,#eef6ff,#fff);border:1px solid #d8e9fb">
+            <div style="font-size:26px">🤝</div>
+            <div style="flex:1"><div style="font-weight:800;font-size:14px">Proposer un point de RDV</div><div class="lr-s">Retrouvez-vous à l'aire de Bierges</div></div>
+            <svg width="20" height="20" viewBox="0 0 24 24" style="stroke:var(--muted-2);fill:none;stroke-width:2"><path d="M9 6l6 6-6 6"/></svg>
+          </div>
+        </div>
+
+        <nav class="tabbar">
+          <button class="tab" data-go="map"><span class="tab-ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span class="tab-lbl">Carte</span></button>
+          <button class="tab" data-go="chat"><span class="tab-ic"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1 1 21 11.5z"/></svg></span><span class="tab-lbl">Chat</span></button>
+          <button class="tab active" data-go="trajet"><span class="tab-ic"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></span><span class="tab-lbl">Trajet</span></button>
+          <button class="tab" data-go="profil"><span class="tab-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><span class="tab-lbl">Profil</span></button>
+        </nav>
+      </section>
+
+      <!-- ════════════════ 6 · MODE CONDUITE (sécurité) ════════════════ -->
+      <section class="screen driver" id="driver" data-theme="dark">
+        <div class="driver-top">
+          <div class="spd">🚗 24 km/h</div>
+          <div class="lock">🔒 Mode conduite — écran limité pour ta sécurité</div>
+        </div>
+        <div class="driver-mid">
+          <div class="who"><div class="nm">Kevin M.</div><div class="st">vous parle dans le salon E40…</div></div>
+          <button class="big-ptt"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3" stroke="#fff" stroke-width="2" fill="none"/></svg><span>Appuie pour parler</span></button>
+        </div>
+        <div class="driver-bottom">
+          <button class="db"><svg viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M23 9l-6 6M17 9l6 6"/></svg>Couper le son</button>
+          <button class="db" data-go="map"><svg viewBox="0 0 24 24"><path d="M16 17l5-5-5-5M21 12H9M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/></svg>Quitter</button>
+        </div>
+      </section>
+
+      <!-- ════════════════ 7 · PROFIL ════════════════ -->
+      <section class="screen" id="profil" data-theme="light">
+        <div class="appbar"><div style="flex:1"><h1>Profil</h1></div><button class="back" style="background:var(--surface)"><svg viewBox="0 0 24 24" style="stroke-width:2"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V20a2 2 0 0 1-4 0v-.2A1.6 1.6 0 0 0 6.6 18l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0-1-2.7H2a2 2 0 0 1 0-4h.2A1.6 1.6 0 0 0 4 5.6l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 2.7-1H10a2 2 0 0 1 4 0v.2a1.6 1.6 0 0 0 2.7 1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0 1 2.7H22a2 2 0 0 1 0 4h-.2a1.6 1.6 0 0 0-1.4 1z"/></svg></button></div>
+        <div class="scroll section">
+          <div class="center-col" style="margin-bottom:18px">
+            <div class="av xl g-violet">M</div>
+            <div class="display" style="font-size:22px;margin-top:12px">Marc D.</div>
+            <div class="muted" style="font-weight:600;font-size:13px">Navetteur Wavre → Bruxelles</div>
+          </div>
+
+          <div class="stat-grid" style="margin-bottom:16px">
+            <div class="stat"><div class="sv">23</div><div class="sl">conversations</div></div>
+            <div class="stat"><div class="sv">8</div><div class="sl">contacts de route</div></div>
+          </div>
+
+          <label class="eyebrow" style="display:block;margin:6px 2px 10px">Centres d'intérêt</label>
+          <div class="chips" style="margin-bottom:18px"><span class="chip">💻 Tech</span><span class="chip amber">🎮 Gaming</span><span class="chip green">🎵 Musique</span></div>
+
+          <div class="list-row"><div class="lr-ic" style="background:var(--violet-100)">👻</div><div class="lr-main"><div class="lr-t">Mode anonyme</div><div class="lr-s">Masquer ton prénom</div></div><div class="toggle"></div></div>
+          <div class="list-row"><div class="lr-ic" style="background:#fef3d6">🔔</div><div class="lr-main"><div class="lr-t">Notifications</div><div class="lr-s">Quand on te contacte</div></div><div class="toggle on"></div></div>
+          <div class="list-row"><div class="lr-ic" style="background:#d6f7ee"><svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:var(--green);fill:none;stroke-width:2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/></svg></div><div class="lr-main"><div class="lr-t">Sécurité & conduite</div><div class="lr-s">Verrouillage > 20 km/h</div></div><svg class="chev" width="18" height="18" viewBox="0 0 24 24" style="stroke:currentColor;fill:none;stroke-width:2"><path d="M9 6l6 6-6 6"/></svg></div>
+          <div class="list-row"><div class="lr-ic" style="background:var(--coral-soft)"><svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:var(--coral);fill:none;stroke-width:2"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg></div><div class="lr-main"><div class="lr-t">Bloqués & signalements</div><div class="lr-s">Gérer ta sécurité sociale</div></div><svg class="chev" width="18" height="18" viewBox="0 0 24 24" style="stroke:currentColor;fill:none;stroke-width:2"><path d="M9 6l6 6-6 6"/></svg></div>
+        </div>
+
+        <nav class="tabbar">
+          <button class="tab" data-go="map"><span class="tab-ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span class="tab-lbl">Carte</span></button>
+          <button class="tab" data-go="chat"><span class="tab-ic"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1 1 21 11.5z"/></svg></span><span class="tab-lbl">Chat</span></button>
+          <button class="tab" data-go="trajet"><span class="tab-ic"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></span><span class="tab-lbl">Trajet</span></button>
+          <button class="tab active" data-go="profil"><span class="tab-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><span class="tab-lbl">Profil</span></button>
+        </nav>
+      </section>
+
+    </div><!-- /screens -->
+
+    <div class="home-indicator"></div>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

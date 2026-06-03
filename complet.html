@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#100d24">
+<meta name="robots" content="noindex, nofollow">
+<title>CoJam — Prototype Produit complet</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="device">
+  <div class="viewport bar-dark">
+    <div class="notch"></div>
+
+    <div class="statusbar">
+      <span class="time">8:12</span>
+      <div class="sb-icons">
+        <svg width="17" height="12" viewBox="0 0 17 12"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="4.5" y="5" width="3" height="7" rx="1"/><rect x="9" y="2.5" width="3" height="9.5" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1"/></svg>
+        <svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 2.5C10.5 2.5 12.7 3.6 14.2 5.3L15.5 4C13.6 1.9 11 .7 8 .7S2.4 1.9 .5 4L1.8 5.3C3.3 3.6 5.5 2.5 8 2.5Z"/><path d="M8 6C9.7 6 11.2 6.7 12.3 7.8L13.6 6.5C12.1 5 10.2 4.2 8 4.2S3.9 5 2.4 6.5L3.7 7.8C4.8 6.7 6.3 6 8 6Z"/><circle cx="8" cy="10.5" r="1.8" fill="currentColor"/></svg>
+        <svg width="25" height="12" viewBox="0 0 25 12"><rect x="1" y="1" width="21" height="10" rx="3"/><rect x="22.6" y="4" width="1.8" height="4" rx="1"/></svg>
+      </div>
+    </div>
+
+    <div class="screens">
+
+      <!-- ════════ ONBOARDING ════════ -->
+      <section class="screen onb" id="onboarding" data-start data-theme="dark">
+        <div class="onb-hero">
+          <div class="float-pin g-amber" style="top:96px;right:34px">K</div>
+          <div class="float-pin g-green" style="top:150px;left:30px;animation-delay:1.2s">S</div>
+          <div class="float-pin g-blue" style="top:220px;right:60px;animation-delay:2.1s">M</div>
+          <div class="onb-logo">🚗 CoJam</div>
+          <h1>Transforme tes bouchons en <em>rencontres.</em></h1>
+          <p>Discute, joue, trouve des compagnons de route — la communauté qui rend les bouchons (presque) agréables.</p>
+        </div>
+        <div class="onb-actions">
+          <button class="sso dark" data-go="map"><svg width="16" height="18" viewBox="0 0 16 18" fill="currentColor"><path d="M13 9.6c0-2 1.6-3 1.7-3.1-1-1.4-2.4-1.6-2.9-1.6-1.2-.1-2.4.7-3 .7s-1.6-.7-2.6-.7C4 5 2.8 5.7 2.1 6.9.7 9.4 1.7 13 3 15c.7 1 1.4 2 2.4 2s1.3-.6 2.5-.6 1.5.6 2.5.6 1.7-1 2.3-2c.5-.7.7-1.4.7-1.5-.1 0-2.1-.8-2.1-3zM11 3.5c.6-.7 1-1.6.9-2.5-.8 0-1.8.5-2.4 1.2-.5.6-1 1.5-.8 2.4.9 0 1.8-.5 2.3-1.1z"/></svg> Continuer avec Apple</button>
+          <button class="sso" data-go="map"><svg width="17" height="17" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.6 9.2c0-.6 0-1.1-.2-1.7H9v3.3h4.8a4 4 0 0 1-1.8 2.7v2.2h3C16.7 14.2 17.6 11.9 17.6 9.2z"/><path fill="#34A853" d="M9 18c2.4 0 4.5-.8 6-2.2l-3-2.2c-.8.6-1.9.9-3 .9-2.3 0-4.3-1.6-5-3.7H1v2.3A9 9 0 0 0 9 18z"/><path fill="#FBBC05" d="M4 10.7a5.4 5.4 0 0 1 0-3.4V5H1a9 9 0 0 0 0 8z"/><path fill="#EA4335" d="M9 3.6c1.3 0 2.5.5 3.4 1.3l2.6-2.6A9 9 0 0 0 1 5l3 2.3C4.7 5.2 6.7 3.6 9 3.6z"/></svg> Continuer avec Google</button>
+          <button class="sso line" data-go="map">Continuer avec un e-mail</button>
+          <p class="legal">En continuant, tu acceptes les <a>conditions</a> et la <a>confidentialité</a>.</p>
+        </div>
+      </section>
+
+      <!-- ════════ CARTE (enrichie) ════════ -->
+      <section class="screen map-screen" id="map" data-theme="dark">
+        <div class="map-canvas">
+          <div class="road v" style="left:22%;top:0;bottom:0"></div>
+          <div class="road v" style="left:70%;top:0;bottom:0"></div>
+          <div class="road h" style="top:34%;left:0;right:0"></div>
+          <div class="road h glow" style="top:58%;left:0;right:0"></div>
+          <div class="radar"><span class="ring"></span><span class="ring"></span><span class="ring"></span></div>
+          <div class="you-dot"></div>
+          <div class="pin talking" style="top:32%;left:30%" data-sheet="sheet-driver"><div class="pin-av g-amber">K</div><div class="pin-tag">Kevin · 92% 🔥</div></div>
+          <div class="pin" style="top:40%;left:66%" data-sheet="sheet-driver"><div class="pin-av g-green">S</div><div class="pin-tag">Sarah · 320 m</div></div>
+          <div class="pin" style="top:64%;left:26%" data-sheet="sheet-driver"><div class="pin-av g-blue">M</div><div class="pin-tag">Marc · 480 m</div></div>
+          <div class="pin" style="top:70%;left:70%" data-go="pub"><div class="pin-av g-amber" style="border-radius:12px">⛽</div><div class="pin-tag">Q8 · -10c/L</div></div>
+        </div>
+
+        <div class="map-topbar">
+          <div class="jam-badge"><span class="dot"></span><b>E40 · Ring<small>Bouchon ~22 min</small></b></div>
+          <button class="btn btn-dark" style="margin-left:auto;padding:11px 14px;font-size:12px" data-go="ghost">👻 Ghost</button>
+          <button class="btn btn-amber" style="padding:11px 14px;font-size:12px" data-go="driver">🚗</button>
+        </div>
+
+        <div class="proximity-hero">
+          <div class="big">7</div>
+          <div class="ph-txt"><div class="t">conducteurs · 3 affinités fortes</div><div class="s">matching par intérêts activé</div></div>
+          <svg width="22" height="22" viewBox="0 0 24 24" style="stroke:#fff;fill:none;stroke-width:2"><path d="M9 6l6 6-6 6"/></svg>
+        </div>
+
+        <div class="sheet-mask" id="sheet-driver">
+          <div class="sheet">
+            <div class="grip"></div>
+            <div style="display:flex;align-items:center;gap:14px">
+              <div class="av l g-amber">K</div>
+              <div style="flex:1"><div style="font-family:var(--ff-display);font-size:20px;font-weight:800">Kevin M.</div><div class="mt" style="font-size:12px;color:var(--green);font-weight:700">● en ligne · 200 m · 92% d'affinité</div></div>
+              <button class="icon-btn" data-close-sheet><svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke-width:2.4"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+            </div>
+            <div class="chips" style="margin:16px 0 18px"><span class="chip">💻 Tech</span><span class="chip amber">🎮 Gaming</span><span class="chip green">🎵 Musique</span></div>
+            <div style="display:flex;gap:10px;margin-bottom:10px">
+              <button class="btn btn-ghost btn-block" data-go="chat">💬 Message</button>
+              <button class="btn btn-primary btn-block" data-go="vocal">🎙️ Vocal</button>
+            </div>
+            <button class="btn btn-outline btn-block" data-go="contacts">⭐ Ajouter en contact de route</button>
+          </div>
+        </div>
+
+        <nav class="tabbar">
+          <button class="tab active" data-go="map"><span class="tab-ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span class="tab-lbl">Carte</span></button>
+          <button class="tab" data-go="chat"><span class="tab-ic"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1 1 21 11.5z"/></svg></span><span class="tab-lbl">Chat</span></button>
+          <button class="tab" data-go="jeux"><span class="tab-ic"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="6"/><path d="M7 11h4M9 9v4"/><circle cx="16" cy="11" r="1"/><circle cx="18" cy="13.5" r="1"/></svg></span><span class="tab-lbl">Jeux</span></button>
+          <button class="tab" data-go="communautes"><span class="tab-ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 5.5a3 3 0 0 1 0 6M21 20a6 6 0 0 0-4-5.6"/></svg></span><span class="tab-lbl">Tribus</span></button>
+          <button class="tab" data-go="profil"><span class="tab-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><span class="tab-lbl">Profil</span></button>
+        </nav>
+      </section>
+
+      <!-- ════════ CHAT (texte + audio) ════════ -->
+      <section class="screen chat-bg" id="chat" data-theme="light">
+        <div class="chat-head">
+          <button class="back" data-go="map"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <div class="av m g-amber">K</div>
+          <div style="flex:1"><div class="nm">Kevin M.</div><div class="mt"><span class="live"></span> en ligne · 200 m</div></div>
+          <button class="icon-btn" data-go="ecoute" title="Écoute partagée" style="margin-right:4px">🎧</button>
+          <button class="icon-btn" data-go="vocal" style="background:var(--violet);color:#fff"><svg viewBox="0 0 24 24"><path d="M12 3v18M8 7v10M16 7v10M4 10v4M20 10v4"/></svg></button>
+        </div>
+        <div class="scroll">
+          <div class="thread">
+            <div class="day">Aujourd'hui · 8:05</div>
+            <div class="row them"><div class="av s g-amber">K</div><div class="bubble">Hey ! Toi aussi coincé sur le E40 ? 😅</div></div>
+            <div class="row me"><div class="bubble">Oui, 20 min que je bouge pas…<div class="tick">8:06 ✓✓</div></div></div>
+            <div class="row them"><div class="av s g-amber">K</div><div class="voice-msg"><button class="vm-play"></button><div class="vm-wave"></div><div class="vm-meta"><span class="vm-dur" data-full="0:14">0:14</span></div></div></div>
+            <div class="row them"><div class="av s g-amber">K</div><div class="bubble">On lance un blind test sur le trajet ? 🎵</div></div>
+            <div class="row me"><div class="voice-msg"><button class="vm-play"></button><div class="vm-wave"></div><div class="vm-meta"><span class="vm-dur" data-full="0:09">0:09</span><span class="vm-rate">1×</span></div></div></div>
+            <div class="row me"><div class="bubble">Carrément 😎<div class="tick">8:09 ✓✓</div></div></div>
+          </div>
+        </div>
+        <div class="composer">
+          <button class="c-ic mic"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>
+          <input class="field" placeholder="Message…">
+          <button class="c-ic send"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></button>
+        </div>
+        <div class="rec-bar"><span class="rec-dot"></span><span class="rec-time">0:00</span><div class="rec-wave"></div><button class="rec-cancel">Annuler</button><button class="rec-send"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></button></div>
+      </section>
+
+      <!-- ════════ SALON VOCAL ════════ -->
+      <section class="screen vocal" id="vocal" data-theme="dark">
+        <div class="vocal-canvas"></div>
+        <div class="vocal-head"><div class="room">🎙️ Salon E40 · Km 23</div><span class="pill">👥 5 participants · mains libres</span></div>
+        <div class="parts">
+          <div class="part talk"><div class="pa-wrap"><div class="av pa g-amber">K</div></div><div class="pn">Kevin M.</div><div class="ps">parle…</div></div>
+          <div class="part"><div class="pa-wrap"><div class="av pa g-coral">S</div><span class="badge-ic mute">🔇</span></div><div class="pn">Sarah L.</div><div class="ps">muet</div></div>
+          <div class="part"><div class="pa-wrap"><div class="av pa g-blue">M</div><span class="badge-ic head">🎧</span></div><div class="pn">Marc D.</div><div class="ps">écoute</div></div>
+          <div class="part you"><div class="pa-wrap"><div class="av pa g-green">T</div></div><div class="pn" style="color:var(--amber)">Toi</div><div class="ps">connecté</div></div>
+          <div class="part"><div class="pa-wrap"><div class="av pa g-violet">J</div><span class="badge-ic head">🎧</span></div><div class="pn">Julie P.</div><div class="ps">écoute</div></div>
+        </div>
+        <div class="vocal-ctrl">
+          <button class="vctrl"><span class="vc-ic"><svg viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M23 9l-6 6M17 9l6 6"/></svg></span><span class="vc-lbl">Muet</span></button>
+          <button class="ptt"><div class="ptt-circle"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3" stroke="#fff" stroke-width="2" fill="none"/></svg></div><span class="ptt-lbl">Appuie pour parler</span></button>
+          <button class="vctrl leave" data-go="map"><span class="vc-ic"><svg viewBox="0 0 24 24"><path d="M16 17l5-5-5-5M21 12H9M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/></svg></span><span class="vc-lbl">Quitter</span></button>
+        </div>
+      </section>
+
+      <!-- ════════ JEUX (hub) ════════ -->
+      <section class="screen" id="jeux" data-theme="light">
+        <div class="appbar"><div><h1>Jeux vocaux</h1><div class="sub">Jouables en parlant · mains sur le volant</div></div></div>
+        <div class="scroll">
+          <div class="feature-hero fh-violet" data-go="jeu-trivia">
+            <div class="eyebrow" style="color:#fff;opacity:.8">En direct dans ta zone</div>
+            <h2>Trivia du bouchon 🧠</h2>
+            <p>12 conducteurs jouent maintenant sur le E40. Réponds à voix haute, marque des points.</p>
+            <button class="btn btn-amber" style="margin-top:14px">Rejoindre la partie</button>
+          </div>
+          <div class="section" style="padding-top:4px">
+            <div class="list-row" data-go="jeu-trivia"><div class="lr-ic" style="background:var(--violet-100);font-size:20px">🧠</div><div class="lr-main"><div class="lr-t">Trivia & Quiz</div><div class="lr-s">Culture générale · 12 en ligne</div></div><span class="chip green">LIVE</span></div>
+            <div class="list-row" data-go="jeu-trivia"><div class="lr-ic" style="background:#fef3d6;font-size:20px">🎵</div><div class="lr-main"><div class="lr-t">Blind test</div><div class="lr-s">Devine la chanson · 5 en ligne</div></div><svg class="chev" width="18" height="18" viewBox="0 0 24 24" style="stroke:currentColor;fill:none;stroke-width:2"><path d="M9 6l6 6-6 6"/></svg></div>
+            <div class="list-row" data-go="jeu-trivia"><div class="lr-ic" style="background:#d6f7ee;font-size:20px">🤔</div><div class="lr-main"><div class="lr-t">Tu préfères…</div><div class="lr-s">Débats & dilemmes</div></div><svg class="chev" width="18" height="18" viewBox="0 0 24 24" style="stroke:currentColor;fill:none;stroke-width:2"><path d="M9 6l6 6-6 6"/></svg></div>
+            <div class="list-row" data-go="premium"><div class="lr-ic" style="background:#efe9ff;font-size:20px">🔒</div><div class="lr-main"><div class="lr-t">Jeux Premium</div><div class="lr-s">Illimités sans pub</div></div><span class="chip amber">PREMIUM</span></div>
+          </div>
+        </div>
+        <nav class="tabbar">
+          <button class="tab" data-go="map"><span class="tab-ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span class="tab-lbl">Carte</span></button>
+          <button class="tab" data-go="chat"><span class="tab-ic"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1 1 21 11.5z"/></svg></span><span class="tab-lbl">Chat</span></button>
+          <button class="tab active" data-go="jeux"><span class="tab-ic"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="6"/><path d="M7 11h4M9 9v4"/><circle cx="16" cy="11" r="1"/><circle cx="18" cy="13.5" r="1"/></svg></span><span class="tab-lbl">Jeux</span></button>
+          <button class="tab" data-go="communautes"><span class="tab-ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 5.5a3 3 0 0 1 0 6M21 20a6 6 0 0 0-4-5.6"/></svg></span><span class="tab-lbl">Tribus</span></button>
+          <button class="tab" data-go="profil"><span class="tab-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><span class="tab-lbl">Profil</span></button>
+        </nav>
+      </section>
+
+      <!-- ════════ JEU TRIVIA ════════ -->
+      <section class="screen" id="jeu-trivia" data-theme="light">
+        <div class="appbar"><button class="back" data-go="jeux"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button><div style="flex:1"><h1>Trivia</h1><div class="sub">Manche 3 / 10 · 🎙️ réponds à voix haute</div></div><span class="chip amber">⏱ 0:08</span></div>
+        <div class="scroll">
+          <div style="display:flex;justify-content:center;gap:18px;padding:14px 0 4px">
+            <div class="center-col"><div class="av m g-amber">K</div><b style="font-size:12px;margin-top:4px">320 pts</b></div>
+            <div class="center-col"><div class="av m g-green">T</div><b style="font-size:12px;margin-top:4px;color:var(--violet)">290 pts</b></div>
+            <div class="center-col"><div class="av m g-blue">M</div><b style="font-size:12px;margin-top:4px">210 pts</b></div>
+          </div>
+          <div class="game-q">
+            <div class="qnum">Question 3</div>
+            <div class="q">Quelle est la capitale de l'Australie ?</div>
+          </div>
+          <div class="ans"><span class="ans-k">A</span> Sydney</div>
+          <div class="ans correct"><span class="ans-k">B</span> Canberra ✓</div>
+          <div class="ans"><span class="ans-k">C</span> Melbourne</div>
+          <div class="ans" style="margin-bottom:20px"><span class="ans-k">D</span> Perth</div>
+        </div>
+      </section>
+
+      <!-- ════════ COMMUNAUTÉS (hub) ════════ -->
+      <section class="screen" id="communautes" data-theme="light">
+        <div class="appbar"><div style="flex:1"><h1>Tes tribus</h1><div class="sub">Communautés de trajet</div></div><button class="back" data-go="communaute-detail" style="background:var(--violet);color:#fff"><svg viewBox="0 0 24 24" style="stroke-width:2.2"><path d="M12 5v14M5 12h14"/></svg></button></div>
+        <div class="scroll">
+          <div class="feature-hero fh-green" data-go="communaute-detail">
+            <div class="eyebrow" style="color:#fff;opacity:.85">Ta communauté #1</div>
+            <h2>Navetteurs E40 🛣️</h2>
+            <p>1 248 membres · 34 en ligne maintenant. Retrouve les mêmes têtes chaque matin.</p>
+          </div>
+          <div class="section" style="padding-top:4px">
+            <div class="list-row" data-go="communaute-detail"><div class="av m g-green">E</div><div class="lr-main"><div class="lr-t">Navetteurs E40</div><div class="lr-s">1 248 membres · 34 en ligne</div></div><span class="chip green">Membre</span></div>
+            <div class="list-row" data-go="communaute-detail"><div class="av m g-violet">G</div><div class="lr-main"><div class="lr-t">Gamers du Ring</div><div class="lr-s">342 membres · 8 en ligne</div></div><button class="chip outline">+ Rejoindre</button></div>
+            <div class="list-row" data-go="communaute-detail"><div class="av m g-amber">C</div><div class="lr-main"><div class="lr-t">Café & Carburant ☕</div><div class="lr-s">210 membres</div></div><button class="chip outline">+ Rejoindre</button></div>
+            <div class="list-row" data-go="communaute-detail"><div class="av m g-blue">P</div><div class="lr-main"><div class="lr-t">Parents pressés 🚸</div><div class="lr-s">156 membres</div></div><button class="chip outline">+ Rejoindre</button></div>
+          </div>
+        </div>
+        <nav class="tabbar">
+          <button class="tab" data-go="map"><span class="tab-ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span class="tab-lbl">Carte</span></button>
+          <button class="tab" data-go="chat"><span class="tab-ic"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1 1 21 11.5z"/></svg></span><span class="tab-lbl">Chat</span></button>
+          <button class="tab" data-go="jeux"><span class="tab-ic"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="6"/><path d="M7 11h4M9 9v4"/><circle cx="16" cy="11" r="1"/><circle cx="18" cy="13.5" r="1"/></svg></span><span class="tab-lbl">Jeux</span></button>
+          <button class="tab active" data-go="communautes"><span class="tab-ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 5.5a3 3 0 0 1 0 6M21 20a6 6 0 0 0-4-5.6"/></svg></span><span class="tab-lbl">Tribus</span></button>
+          <button class="tab" data-go="profil"><span class="tab-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><span class="tab-lbl">Profil</span></button>
+        </nav>
+      </section>
+
+      <!-- ════════ COMMUNAUTÉ DÉTAIL ════════ -->
+      <section class="screen chat-bg" id="communaute-detail" data-theme="light">
+        <div class="appbar"><button class="back" data-go="communautes"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button><div class="av m g-green">E</div><div style="flex:1"><div class="nm" style="font-weight:800">Navetteurs E40</div><div class="sub">1 248 membres · 34 en ligne</div></div><button class="icon-btn" data-go="vocal" style="background:var(--violet);color:#fff"><svg viewBox="0 0 24 24"><path d="M12 3v18M8 7v10M16 7v10M4 10v4M20 10v4"/></svg></button></div>
+        <div class="scroll">
+          <div class="section">
+            <div class="card" style="display:flex;gap:12px;align-items:center;margin-bottom:14px;background:linear-gradient(135deg,#ecfdf5,#fff);border:1px solid #b8ecd9">
+              <div style="font-size:24px">🎙️</div><div style="flex:1"><div style="font-weight:800;font-size:14px">Salon permanent ouvert</div><div class="lr-s">8 personnes discutent du trafic</div></div><button class="btn btn-primary" style="padding:9px 14px;font-size:13px" data-go="vocal">Entrer</button>
+            </div>
+            <div class="thread" style="padding:0">
+              <div class="row them"><div class="av s g-amber">K</div><div class="bubble">Accident dégagé après la sortie 12, ça repart 🙌</div></div>
+              <div class="row them"><div class="av s g-blue">M</div><div class="bubble">Merci ! Quelqu'un sur la bande de gauche ?</div></div>
+              <div class="row me"><div class="bubble">Moi, je te garde une place 😄<div class="tick">8:11 ✓✓</div></div></div>
+              <div class="row them"><div class="av s g-coral">J</div><div class="voice-msg" style="min-width:180px"><button class="vm-play"></button><div class="vm-wave" data-bars="22"></div><div class="vm-meta"><span class="vm-dur" data-full="0:07">0:07</span></div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="composer"><button class="c-ic mic"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button><input class="field" placeholder="Écrire à la tribu…"><button class="c-ic send"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></button></div>
+        <div class="rec-bar"><span class="rec-dot"></span><span class="rec-time">0:00</span><div class="rec-wave"></div><button class="rec-cancel">Annuler</button><button class="rec-send"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></button></div>
+      </section>
+
+      <!-- ════════ GHOST LANES ════════ -->
+      <section class="screen vocal" id="ghost" data-theme="dark">
+        <div class="vocal-canvas"></div>
+        <div class="vocal-head" style="padding-bottom:0"><div class="room">👻 Ghost Lanes</div><span class="pill">Identité masquée</span></div>
+        <div class="scroll" style="position:relative;z-index:2">
+          <div class="section">
+            <p style="color:rgba(255,255,255,.7);font-size:13.5px;text-align:center;margin-bottom:18px;line-height:1.5">Vois les <b style="color:#fff">centres d'intérêt</b> des conducteurs proches, sans révéler qui tu es. Tu choisis quand te montrer.</p>
+            <div class="list-row" style="background:rgba(255,255,255,.07);box-shadow:none;border:1px solid rgba(255,255,255,.1)"><div class="lr-ic" style="background:rgba(255,255,255,.1)">👤</div><div class="lr-main"><div class="lr-t" style="color:#fff">Anonyme · 180 m</div><div class="lr-s" style="color:rgba(255,255,255,.55)">💻 Tech · 🎮 Gaming · 🎵 Musique</div></div><button class="chip amber">👋 Saluer</button></div>
+            <div class="list-row" style="background:rgba(255,255,255,.07);box-shadow:none;border:1px solid rgba(255,255,255,.1)"><div class="lr-ic" style="background:rgba(255,255,255,.1)">👤</div><div class="lr-main"><div class="lr-t" style="color:#fff">Anonyme · 240 m</div><div class="lr-s" style="color:rgba(255,255,255,.55)">⚽ Sport · 🍳 Cuisine</div></div><button class="chip amber">👋 Saluer</button></div>
+            <div class="list-row" style="background:rgba(255,255,255,.07);box-shadow:none;border:1px solid rgba(255,255,255,.1)"><div class="lr-ic" style="background:rgba(255,255,255,.1)">👤</div><div class="lr-main"><div class="lr-t" style="color:#fff">Anonyme · 410 m</div><div class="lr-s" style="color:rgba(255,255,255,.55)">📈 Business · ✈️ Voyage</div></div><button class="chip amber">👋 Saluer</button></div>
+
+            <div class="list-row" style="background:rgba(253,203,110,.12);box-shadow:none;border:1px solid rgba(253,203,110,.3);margin-top:18px"><div class="lr-main"><div class="lr-t" style="color:#fff">Me montrer aux autres</div><div class="lr-s" style="color:rgba(255,255,255,.55)">Afficher ton prénom et avatar</div></div><div class="toggle"></div></div>
+          </div>
+        </div>
+        <div class="vocal-ctrl" style="padding-top:14px"><button class="btn btn-outline btn-block" data-go="map" style="border-color:rgba(255,255,255,.25);color:#fff">Retour à la carte</button></div>
+      </section>
+
+      <!-- ════════ ÉCOUTE PARTAGÉE ════════ -->
+      <section class="screen driver" id="ecoute" data-theme="dark">
+        <div class="driver-top"><div class="spd">🎧 Écoute partagée</div><div class="lock" style="color:var(--green-300);background:rgba(0,184,148,.12);border-color:rgba(0,184,148,.3)">● synchronisé avec Kevin M.</div></div>
+        <div class="driver-mid" style="gap:26px">
+          <div style="width:200px;height:200px;border-radius:28px;background:linear-gradient(135deg,#e84393,#fd79a8,#fdcb6e);box-shadow:0 20px 50px rgba(232,67,147,.4);display:grid;place-items:center;font-size:70px">🎵</div>
+          <div class="who"><div class="nm" style="font-size:22px">Lofi Beats to Commute</div><div class="st">CoJam Radio · vous écoutez ensemble</div></div>
+          <div style="display:flex;align-items:center;gap:26px">
+            <svg width="26" height="26" viewBox="0 0 24 24" style="fill:#fff"><path d="M6 6h2v12H6zM10 12l9-6v12z" transform="scale(-1,1) translate(-24,0)"/></svg>
+            <div class="big-ptt" style="width:74px;height:74px"><svg viewBox="0 0 24 24" style="width:30px;height:30px"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="#fff"/></svg></div>
+            <svg width="26" height="26" viewBox="0 0 24 24" style="fill:#fff"><path d="M6 6h2v12H6zM10 12l9-6v12z"/></svg>
+          </div>
+        </div>
+        <div class="driver-bottom"><button class="db" data-go="chat"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1 1 21 11.5z"/></svg>En discuter</button><button class="db" data-go="map"><svg viewBox="0 0 24 24"><path d="M16 17l5-5-5-5M21 12H9M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/></svg>Quitter</button></div>
+      </section>
+
+      <!-- ════════ ENTRAIDE ROUTIÈRE ════════ -->
+      <section class="screen" id="entraide" data-theme="light">
+        <div class="appbar"><button class="back" data-go="profil"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button><div><h1>Entraide routière</h1><div class="sub">Les CoJammers proches s'entraident</div></div></div>
+        <div class="scroll section">
+          <div class="feature-hero fh-amber"><h2>🆘 Besoin d'aide ?</h2><p>Signale une panne : les conducteurs CoJam à proximité sont prévenus immédiatement.</p><button class="btn btn-dark" style="margin-top:14px">Signaler une panne</button></div>
+          <div class="row-between" style="margin:18px 2px 12px"><h2 class="display" style="font-size:16px">Alerte en cours</h2><span class="chip green">3 notifiés</span></div>
+          <div class="card" style="display:flex;gap:13px;align-items:center;border:1px solid #ffe0b8;background:#fff9f0">
+            <div class="av m g-coral">!</div><div style="flex:1"><div style="font-weight:800">Panne · bande d'arrêt</div><div class="lr-s">Sortie 9 · pneu crevé</div></div>
+          </div>
+          <div class="list-row" style="margin-top:12px"><div class="av m g-blue">M</div><div class="lr-main"><div class="lr-t">Marc arrive 🛠️</div><div class="lr-s">À 4 min · a un cric</div></div><span class="chip green">en route</span></div>
+          <div class="list-row"><div class="av m g-green">S</div><div class="lr-main"><div class="lr-t">Sarah a prévenu une dépanneuse</div><div class="lr-s">ETA 15 min</div></div></div>
+        </div>
+      </section>
+
+      <!-- ════════ CONTACTS DE ROUTE ════════ -->
+      <section class="screen" id="contacts" data-theme="light">
+        <div class="appbar"><button class="back" data-go="profil"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button><div><h1>Contacts de route</h1><div class="sub">Les têtes que tu recroises</div></div></div>
+        <div class="scroll section">
+          <div class="card" style="display:flex;gap:12px;align-items:center;margin-bottom:16px;background:linear-gradient(135deg,#efe9ff,#fff);border:1px solid #d8ccff">
+            <div class="av m g-amber">K</div><div style="flex:1"><div style="font-weight:800;font-size:14px">Tu croises souvent Kevin</div><div class="lr-s">3 fois cette semaine sur le E40</div></div><button class="btn btn-primary" style="padding:9px 13px;font-size:12px">⭐ Ajouter</button>
+          </div>
+          <label class="eyebrow" style="display:block;margin:2px 2px 10px">Tes contacts</label>
+          <div class="list-row"><div class="av m g-green">S</div><div class="lr-main"><div class="lr-t">Sarah L.</div><div class="lr-s">Vu 8× · dernier : ce matin</div></div><button class="icon-btn" data-go="chat" style="width:38px;height:38px"><svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:var(--violet)"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1 1 21 11.5z"/></svg></button></div>
+          <div class="list-row"><div class="av m g-blue">M</div><div class="lr-main"><div class="lr-t">Marc D.</div><div class="lr-s">Vu 5× · navette Wavre</div></div><button class="icon-btn" data-go="chat" style="width:38px;height:38px"><svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:var(--violet)"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1 1 21 11.5z"/></svg></button></div>
+          <div class="list-row"><div class="av m g-violet">J</div><div class="lr-main"><div class="lr-t">Julie P.</div><div class="lr-s">Vu 3× · même blind test</div></div><button class="icon-btn" data-go="chat" style="width:38px;height:38px"><svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:var(--violet)"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1 1 21 11.5z"/></svg></button></div>
+        </div>
+      </section>
+
+      <!-- ════════ PUB GÉOLOCALISÉE ════════ -->
+      <section class="screen" id="pub" data-theme="light">
+        <div class="appbar"><button class="back" data-go="map"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button><div><h1>Offres à proximité</h1><div class="sub">Pendant que tu patientes…</div></div></div>
+        <div class="scroll" style="padding-bottom:14px">
+          <div class="ad-card">
+            <div class="ad-top"><span class="ad-tag">SPONSORISÉ</span><span style="font-size:46px">⛽</span></div>
+            <div class="ad-body"><div class="h">Q8 — Sortie 12</div><div class="d">-10 cts/L sur le diesel · à 1,2 km sur ta route</div><button class="btn btn-amber btn-block" style="margin-top:12px">Voir l'itinéraire</button></div>
+          </div>
+          <div class="ad-card">
+            <div class="ad-top" style="background:linear-gradient(135deg,#e17055,#fab1a0)"><span class="ad-tag">SPONSORISÉ</span><span style="font-size:46px">☕</span></div>
+            <div class="ad-body"><div class="h">Café du Ring</div><div class="d">Croissant offert pour tout café · sortie 11</div></div>
+          </div>
+          <div class="ad-card" style="margin-bottom:6px">
+            <div class="ad-top" style="background:linear-gradient(135deg,#0984e3,#74b9ff)"><span class="ad-tag">SPONSORISÉ</span><span style="font-size:46px">🍔</span></div>
+            <div class="ad-body"><div class="h">Quick — Aire de Bierges</div><div class="d">Menu à 7,90€ · drive ouvert</div></div>
+          </div>
+          <p class="muted" style="text-align:center;font-size:11px;padding:0 30px 10px">Les offres sont géolocalisées sur ta zone de bouchon. <b>Premium</b> les masque.</p>
+        </div>
+      </section>
+
+      <!-- ════════ PROFIL (enrichi) ════════ -->
+      <section class="screen" id="profil" data-theme="light">
+        <div class="appbar"><div style="flex:1"><h1>Profil</h1></div><button class="back" data-go="premium" style="background:linear-gradient(135deg,var(--amber-deep),var(--amber));color:#5a3d00;width:auto;padding:0 14px;border-radius:var(--pill);font-weight:800;font-size:12px">⭐ Premium</button></div>
+        <div class="scroll section">
+          <div class="center-col" style="margin-bottom:16px">
+            <div class="av xl g-violet">M<span style="position:absolute;bottom:-2px;right:-4px;font-size:20px;background:#fff;border-radius:50%;width:30px;height:30px;display:grid;place-items:center;box-shadow:var(--shadow-sm)">⭐</span></div>
+            <div class="display" style="font-size:22px;margin-top:12px">Marc D.</div>
+            <div class="muted" style="font-weight:600;font-size:13px">« Dev le jour, gamer la nuit 🎮 »</div>
+            <div style="display:flex;gap:10px;margin-top:10px"><span class="chip outline">🔗 LinkedIn</span><span class="chip outline">🚗 Tesla M3</span></div>
+          </div>
+
+          <div class="stat-grid" style="margin-bottom:10px">
+            <div class="stat"><div class="sv">142</div><div class="sl">conversations</div></div>
+            <div class="stat carbon"><div class="sv">38<small style="font-size:13px"> kg</small></div><div class="sl">CO₂ économisé 🌱</div></div>
+          </div>
+          <div class="stat-grid" style="margin-bottom:18px">
+            <div class="stat"><div class="sv">12</div><div class="sl">contacts de route</div></div>
+            <div class="stat"><div class="sv">5</div><div class="sl">covoiturages</div></div>
+          </div>
+
+          <div class="list-row" data-go="contacts"><div class="lr-ic" style="background:var(--violet-100);font-size:18px">⭐</div><div class="lr-main"><div class="lr-t">Contacts de route</div><div class="lr-s">Kevin, Sarah, Marc…</div></div><svg class="chev" width="18" height="18" viewBox="0 0 24 24" style="stroke:currentColor;fill:none;stroke-width:2"><path d="M9 6l6 6-6 6"/></svg></div>
+          <div class="list-row" data-go="ecoute"><div class="lr-ic" style="background:#fde7f1;font-size:18px">🎧</div><div class="lr-main"><div class="lr-t">Écoute partagée</div><div class="lr-s">Podcasts & musique sync</div></div><svg class="chev" width="18" height="18" viewBox="0 0 24 24" style="stroke:currentColor;fill:none;stroke-width:2"><path d="M9 6l6 6-6 6"/></svg></div>
+          <div class="list-row" data-go="entraide"><div class="lr-ic" style="background:#fff0e0;font-size:18px">🆘</div><div class="lr-main"><div class="lr-t">Entraide routière</div><div class="lr-s">Alerte panne & assistance</div></div><svg class="chev" width="18" height="18" viewBox="0 0 24 24" style="stroke:currentColor;fill:none;stroke-width:2"><path d="M9 6l6 6-6 6"/></svg></div>
+          <div class="list-row" data-go="pub"><div class="lr-ic" style="background:#fef3d6;font-size:18px">🏷️</div><div class="lr-main"><div class="lr-t">Offres à proximité</div><div class="lr-s">Pub géolocalisée</div></div><svg class="chev" width="18" height="18" viewBox="0 0 24 24" style="stroke:currentColor;fill:none;stroke-width:2"><path d="M9 6l6 6-6 6"/></svg></div>
+        </div>
+        <nav class="tabbar">
+          <button class="tab" data-go="map"><span class="tab-ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span class="tab-lbl">Carte</span></button>
+          <button class="tab" data-go="chat"><span class="tab-ic"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1 1 21 11.5z"/></svg></span><span class="tab-lbl">Chat</span></button>
+          <button class="tab" data-go="jeux"><span class="tab-ic"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="6"/><path d="M7 11h4M9 9v4"/><circle cx="16" cy="11" r="1"/><circle cx="18" cy="13.5" r="1"/></svg></span><span class="tab-lbl">Jeux</span></button>
+          <button class="tab" data-go="communautes"><span class="tab-ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 5.5a3 3 0 0 1 0 6M21 20a6 6 0 0 0-4-5.6"/></svg></span><span class="tab-lbl">Tribus</span></button>
+          <button class="tab active" data-go="profil"><span class="tab-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><span class="tab-lbl">Profil</span></button>
+        </nav>
+      </section>
+
+      <!-- ════════ PREMIUM / PAYWALL ════════ -->
+      <section class="screen premium" id="premium" data-theme="dark">
+        <div class="scroll" style="padding:64px 22px 0">
+          <button class="back" data-go="profil" style="background:rgba(255,255,255,.1);color:#fff;margin-bottom:14px"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <div style="text-align:center;margin-bottom:22px">
+            <div style="font-size:44px">⭐</div>
+            <h1 class="display" style="font-size:30px;color:#fff;margin-top:6px">CoJam Premium</h1>
+            <p style="color:rgba(255,255,255,.65);font-size:14px;margin-top:6px">Le bouchon, version confort.</p>
+          </div>
+
+          <div class="plan best">
+            <span class="tagbest">POPULAIRE</span>
+            <div style="color:#fff;font-weight:800">Premium</div>
+            <div class="price" style="color:#fff">3,99€<small>/mois</small></div>
+            <div class="perk"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Zéro publicité</div>
+            <div class="perk"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Rayon élargi (5 km)</div>
+            <div class="perk"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Voix HD</div>
+            <div class="perk"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Jeux & communautés illimités</div>
+            <div class="perk"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Badge ⭐ + mode anonyme avancé</div>
+            <button class="btn btn-amber btn-block" style="margin-top:14px">Passer Premium</button>
+          </div>
+
+          <div class="plan">
+            <div style="color:#fff;font-weight:800">Gratuit</div>
+            <div class="price" style="color:rgba(255,255,255,.8)">0€</div>
+            <div class="perk" style="opacity:.6"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Carte, chat, vocal, 1 communauté</div>
+            <div class="perk" style="opacity:.6"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Avec publicité géolocalisée</div>
+          </div>
+          <p class="muted" style="text-align:center;font-size:11px;padding:6px 20px 24px">Sans engagement · résiliable à tout moment</p>
+        </div>
+      </section>
+
+      <!-- ════════ MODE CONDUITE ════════ -->
+      <section class="screen driver" id="driver" data-theme="dark">
+        <div class="driver-top"><div class="spd">🚗 24 km/h</div><div class="lock">🔒 Mode conduite — écran limité</div></div>
+        <div class="driver-mid"><div class="who"><div class="nm">Kevin M.</div><div class="st">vous parle dans le salon E40…</div></div>
+          <button class="big-ptt"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3" stroke="#fff" stroke-width="2" fill="none"/></svg><span>Appuie pour parler</span></button>
+        </div>
+        <div class="driver-bottom"><button class="db"><svg viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M23 9l-6 6M17 9l6 6"/></svg>Couper le son</button><button class="db" data-go="map"><svg viewBox="0 0 24 24"><path d="M16 17l5-5-5-5M21 12H9M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/></svg>Quitter</button></div>
+      </section>
+
+    </div><!-- /screens -->
+    <div class="home-indicator"></div>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>
